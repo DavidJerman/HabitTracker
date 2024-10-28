@@ -52,7 +52,7 @@ Tako opravila potrbujejo naslednje lastnosti:
 
 Dodatna funkcionalnost bi bila da se opravila lahko organizira v sezbane.
 
-Hierarhija teh lastnosti je prikazana na diagramu [plan.drawio](plan.drawio). Za odpiranje si
+Hierarhija teh lastnosti je prikazana na diagramu [plan.svg](docs/plan.svg). Za odpiranje si
 lahko namestite plugin/extension Draw.io Integration ali pa datoteko odprete in urejate na
 spletni strani [Draw.io](https://app.diagrams.net/).
 
