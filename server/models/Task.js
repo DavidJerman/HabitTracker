@@ -17,10 +17,13 @@ const TaskSchema = new mongoose.Schema({
     dateAdded: {
         type: Date,
         default: Date.now,
+        required: true,
     },
     recurrence: {
         type: String,
-        enum: ['none', 'daily', 'weekly', 'monthly']
+        enum: ['none', 'daily', 'weekly', 'monthly'],
+        default: 'none',
+        required: true,
     },
     recurringDate: {
         type: Date,
@@ -30,10 +33,9 @@ const TaskSchema = new mongoose.Schema({
         type: Date,
         required: false,
     },
-    status: {
-        type: String,
-        enum: ['Not Completed', 'Completed'],
-        default: 'Not Completed',
+    completed: {
+        type: Boolean,
+        default: false
     },
     completedDate: {
         type: Date,
