@@ -1,3 +1,10 @@
+// models/Task.js
+
+/**
+ * @module Task
+ * @description Task Schema represents a task in the MongoDB database.
+ **/
+
 const mongoose = require('mongoose');
 
 const TaskSchema = new mongoose.Schema({

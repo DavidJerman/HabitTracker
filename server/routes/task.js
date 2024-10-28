@@ -1,4 +1,10 @@
 // routes/task.js
+
+/**
+ * @module Task
+ * @description Task Router provides endpoints for creating, deleting, and updating tasks.
+ */
+
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const Task = require('../models/Task');

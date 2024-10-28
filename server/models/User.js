@@ -1,8 +1,13 @@
 // models/User.js
+
+/**
+ * @module User
+ * @description User Schema represents a user in the MongoDB database.
+ **/
+
 const mongoose = require('mongoose');
 
-// Define the User schema
-const userSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
@@ -24,4 +29,4 @@ const userSchema = new mongoose.Schema({
 });
 
 // Export the model
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', UserSchema);

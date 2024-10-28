@@ -1,4 +1,10 @@
 // routes/auth.js
+
+/**
+ * @module Auth
+ * @description Auth Router provides endpoints for user registration and login.
+ */
+
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -13,15 +19,12 @@ router.post('/register', async (req, res) => {
 
     try {
         let user = await User.findOne({username});
-        if (user)
-            return res.status(400).json({error: "User already exists"});
+        if (user) return res.status(400).json({error: "User already exists"});
 
         user = await User.findOne({email});
-        if (user)
-            return res.status(400).json({error: "Email already exists"});
+        if (user) return res.status(400).json({error: "Email already exists"});
 
-        if (!username || !password || !email)
-            return res.status(400).json({error: "Missing required user information"});
+        if (!username || !password || !email) return res.status(400).json({error: "Missing required user information"});
 
         user = new User({
             username,
@@ -42,8 +45,7 @@ router.post('/login', async (req, res) => {
     console.log('Logging in user:', username);
 
     try {
-        if (!username || !password)
-            return res.status(400).json({error: "Missing required user information"});
+        if (!username || !password) return res.status(400).json({error: "Missing required user information"});
 
         const user = await User.findOne({username});
         if (user && await bcrypt.compare(password, user.password)) {

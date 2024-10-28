@@ -1,3 +1,10 @@
+// models/Activity.js
+
+/**
+ * @module Activity
+ * @description Activity Schema represents a user's sports activity in the MongoDB database.
+ */
+
 const mongoose = require('mongoose');
 
 const ActivitySchema = new mongoose.Schema({

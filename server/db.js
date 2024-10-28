@@ -1,4 +1,10 @@
 // db.js
+
+/**
+ * @module db
+ * @description Connects to the MongoDB database using Mongoose.
+ */
+
 const mongoose = require('mongoose');
 require('dotenv').config();
 

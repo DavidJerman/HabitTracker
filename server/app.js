@@ -1,4 +1,10 @@
 // app.js
+
+/**
+ * @module app
+ * @description Entry point for the Express application.
+ */
+
 const express = require('express');
 const cors = require('cors');
 
@@ -17,6 +23,11 @@ app.get('/', (req, res) => res.send('API is running'));
 app.use('/auth', authRoutes);
 app.use('/task', taskRoutes);
 
-connectDB().then(() => console.log('Connected to MongoDB'));
+connectDB()
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => {
+        console.error('Failed to connect to MongoDB', err);
+        process.exit(1);
+    });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
