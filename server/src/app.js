@@ -1,7 +1,7 @@
 // app.js
 
 /**
- * @module app
+ * @module App
  * @description Entry point for the Express application.
  */
 

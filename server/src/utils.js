@@ -1,4 +1,9 @@
 // utils.js
+
+/**
+ * @module Utils
+ * @description Utility functions for the application.
+ */
 const jwt = require('jsonwebtoken');
 
 /**

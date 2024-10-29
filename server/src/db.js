@@ -1,7 +1,7 @@
 // db.js
 
 /**
- * @module db
+ * @module Database
  * @description Connects to the MongoDB database using Mongoose.
  */
 
