@@ -12,7 +12,8 @@ require('dotenv').config();
 
 const connectDB = require('./db');
 const authRoutes = require('./routes/auth');
-const taskRoutes = require('./routes/task');
+const taskRoutes = require('./routes/tasks');
+const activityRoutes = require('./routes/activities');
 const PORT = process.env.CLIENT_PORT || 5000;
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(cors());
 app.get('/', (req, res) => res.send('API is running'));
 app.use('/auth', authRoutes);
 app.use('/task', taskRoutes);
+app.use('/activity', activityRoutes);
 
 connectDB()
     .then(() => console.log('Connected to MongoDB'))

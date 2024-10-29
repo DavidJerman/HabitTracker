@@ -6,43 +6,9 @@
  */
 
 const express = require('express');
-const jwt = require('jsonwebtoken');
+const {verifyToken, handleError} = require('../utils');
 const Task = require('../models/Task');
 const router = express.Router();
-
-/**
- * Verify JWT token
- * @param token - JWT token
- * @returns {object} - Decoded token
- */
-const verifyToken = (token) => {
-    if (!token) {
-        throw {status: 401, error: "Unauthorized or missing token"};
-    }
-
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-    if (!decoded) {
-        throw {status: 401, error: "Unauthorized"};
-    }
-
-    return decoded;
-};
-
-/**
- * Handle error
- * @param res - Response object
- * @param error - Error object
- * @returns {object} - Error response
- */
-const handleError = (res, error) => {
-    if (error.name === 'JsonWebTokenError') {
-        return res.status(401).json({error: "Unauthorized"});
-    } else {
-        console.error(error);
-        return res.status(400).json({error});
-    }
-};
 
 /**
  * Validate task parameters
@@ -118,10 +84,7 @@ router.post('/add', async (req, res) => {
 
         const validationError = validateTaskParams(name, recurrence, recurringDate, dueDate);
         if (validationError) return res.status(validationError.status).json({error: validationError.error});
-
-        // Verify date format (YYYY-MM-DD)
-        if (recurringDate && !/^\d{4}-\d{2}-\d{2}$/.test(recurringDate)) return res.status(400).json({error: "Invalid recurring date format"});
-
+        
         const task = new Task({
             userId: decoded.id,
             name,
@@ -176,7 +139,7 @@ router.post('/update', async (req, res) => {
         if (!taskId) return res.status(400).json({error: "Task ID is required"});
 
         const task = await Task.findOne({_id: taskId, userId: decoded.id});
-        if (!task) return res.status(404).json({ error: "Task not found" });
+        if (!task) return res.status(404).json({error: "Task not found"});
 
         if (name) task.name = name;
         if (description) task.description = description;
@@ -216,10 +179,10 @@ router.post('/delete', async (req, res) => {
     try {
         const decoded = verifyToken(token);
 
-        if (!taskId) return res.status(400).json({ error: "Task ID is required" });
+        if (!taskId) return res.status(400).json({error: "Task ID is required"});
 
-        const task = await Task.findOne({ _id: taskId, userId: decoded.id });
-        if (!task) return res.status(404).json({ error: "Task not found" });
+        const task = await Task.findOne({_id: taskId, userId: decoded.id});
+        if (!task) return res.status(404).json({error: "Task not found"});
 
         await task.delete();
         res.status(200).json({message: "Task deleted"});
@@ -255,8 +218,8 @@ router.post('/get', async (req, res) => {
             if (filter.recurrence) query.recurrence = filter.recurrence;
             if (filter.completed) query.completed = true;
             if (filter.incomplete) query.completed = false;
-            if (filter.dueDateBefore) query.dueDate = { $lt: filter.dueDateBefore };
-            if (filter.dueDateAfter) query.dueDate = { $gt: filter.dueDateAfter };
+            if (filter.dueDateBefore) query.dueDate = {$lt: filter.dueDateBefore};
+            if (filter.dueDateAfter) query.dueDate = {$gt: filter.dueDateAfter};
         }
 
         const tasks = await Task.find(query).limit(100);
