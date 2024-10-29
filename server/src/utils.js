@@ -3,7 +3,9 @@ const jwt = require('jsonwebtoken');
 
 /**
  * Verify JWT token
+ *
  * @param token - JWT token
+ *
  * @returns {object} - Decoded token
  */
 const verifyToken = (token) => {
@@ -20,8 +22,10 @@ const verifyToken = (token) => {
 
 /**
  * Handle error
+ *
  * @param res - Response object
  * @param error - Error object
+ *
  * @returns {object} - Error response
  */
 const handleError = (res, error) => {
