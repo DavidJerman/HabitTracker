@@ -4,12 +4,13 @@
   "description": "Testing environment",
   "main": "test.js",
   "scripts": {
-    "test": "jest"
+    "test": "start-server-and-test \"npm --prefix ../server start\" http://localhost:3000 \"jest\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "jest": "^29.7.0",
+    "start-server-and-test": "^2.0.8",
     "supertest": "^7.0.0"
   }
 }

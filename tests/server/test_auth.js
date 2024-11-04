@@ -180,5 +180,51 @@ describe('Auth API', () => {
             expect(responseLogin.status).toBe(200);
             expect(responseLogin.body).toHaveProperty('token');
         })
+
+        it('should return an error for missing username', async () => {
+            const response = await request(app)
+                .post('/auth/login')
+                .send({
+                    password: globalPassword
+                });
+
+            expect(response.status).toBe(400);
+            expect(response.body).toHaveProperty('error', 'Missing required user information');
+        });
+
+        it('should return an error for missing password', async () => {
+            const response = await request(app)
+                .post('/auth/login')
+                .send({
+                    username: globalUsername
+                });
+
+            expect(response.status).toBe(400);
+            expect(response.body).toHaveProperty('error', 'Missing required user information');
+        });
+
+        it('should return an error for wrong username', async () => {
+            const response = await request(app)
+                .post('/auth/login')
+                .send({
+                    username: 'wrongUsername',
+                    password: globalPassword
+                });
+
+            expect(response.status).toBe(401);
+            expect(response.body).toHaveProperty('error', 'Invalid credentials');
+        });
+
+        it('should return an error for wrong password', async () => {
+            const response = await request(app)
+                .post('/auth/login')
+                .send({
+                    username: globalUsername,
+                    password: 'wrongPassword'
+                });
+
+            expect(response.status).toBe(401);
+            expect(response.body).toHaveProperty('error', 'Invalid credentials');
+        });
     })
 });
