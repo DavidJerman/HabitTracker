@@ -138,6 +138,47 @@ describe('Auth API', () => {
 
             expect(response.status).toBe(400);
             expect(response.body).toHaveProperty('error', 'Email already exists');
-        })
+        });
     });
+
+    describe('POST /auth/login', () => {
+        const globalUsername = `testuser_${generateRandomString(5)}`;
+        const globalEmail = `${generateRandomString(8)}@mail.com`;
+        const globalPassword = 'password';
+
+        it('should register and login a user', async () => {
+            const responseRegister = await request(app)
+                .post('/auth/register')
+                .send({
+                    username: globalUsername,
+                    password: globalPassword,
+                    email: globalEmail
+                });
+
+            expect(responseRegister.status).toBe(201);
+            expect(responseRegister.body).toHaveProperty('message', 'User registered');
+
+            const responseLogin = await request(app)
+                .post('/auth/login')
+                .send({
+                    username: globalUsername,
+                    password: globalPassword
+                });
+
+            expect(responseLogin.status).toBe(200);
+            expect(responseLogin.body).toHaveProperty('token');
+        });
+
+        it('should login a user', async () => {
+            const responseLogin = await request(app)
+                .post('/auth/login')
+                .send({
+                    username: globalUsername,
+                    password: globalPassword
+                });
+
+            expect(responseLogin.status).toBe(200);
+            expect(responseLogin.body).toHaveProperty('token');
+        })
+    })
 });
