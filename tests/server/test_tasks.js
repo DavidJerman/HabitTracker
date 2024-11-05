@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = 'http://localhost:3000'; // The URL of your API
+const app = 'http://localhost:3000';
 
 // Function to generate a random string
 const generateRandomString = (length) => {
