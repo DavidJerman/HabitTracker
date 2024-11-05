@@ -6,6 +6,7 @@ import Nutrition from "./pages/Nutrition";
 import Sports from "./pages/Sports";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,7 +29,13 @@ function App() {
           </div>
         </>
       ) : (
-        <Login onLogin={handleLogin} />
+        <>
+        <Routes>
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Login onLogin={handleLogin} />} />
+        </Routes>
+        </>
       )}
     </Router>
   );

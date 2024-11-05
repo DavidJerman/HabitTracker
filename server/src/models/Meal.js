@@ -12,7 +12,7 @@ const mongoose = require('mongoose');
  *
  * @property {string} userId - The ID of the user associated with the meal.
  * @property {string} name - The name of the meal (required).
- * @property {string} [notes] - A brief description of the meal.
+ * @property {string} [notes] - A brief note about the meal.
  * @property {Date} dateAdded - The date when the meal was added (default: current date).
  * @property {('breakfast'|'lunch'|'dinner'|'snack'|'other')} mealType - The type of meal.
  */
@@ -26,7 +26,7 @@ const MealSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: True,
+        required: true,
     },
     name: {
         type: String,
@@ -45,7 +45,7 @@ const MealSchema = new mongoose.Schema({
         ingredient: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Ingredient',
-            required: True,
+            required: true,
         },
         quantity: {
             type: Number,

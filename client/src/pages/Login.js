@@ -1,22 +1,40 @@
 // src/pages/Login.js
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 
 function Login({ onLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        // Simple authentication check (replace with real auth logic)
-        if (username === "user" && password === "password") {
-            onLogin(); // Set logged-in state in App component
+        const res = await fetch("http://localhost:3000/auth/login", {
+            method: "POST",
+            credentials: "include",
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        });
+        const data = await res.json();
+        if(data.token){
+            //TODO SAVE TOKEN
+            onLogin();
         } else {
+            setUsername("");
+            setPassword("");
             alert("Invalid username or password");
         }
     };
+
+    const handleRegisterClick = () => {
+        navigate('/register');
+    }
 
     return (
         <div className="login-container">
@@ -50,6 +68,12 @@ function Login({ onLogin }) {
 
                 <button type="submit">Login</button>
             </form>
+            <p>
+                Don't have an account?{" "}
+                <button onClick={handleRegisterClick} className="">
+                    Register here
+                </button>
+            </p>
         </div>
     );
 }
