@@ -37,7 +37,6 @@ const handleError = (res, error) => {
     if (error.name === 'JsonWebTokenError') {
         return res.status(401).json({error: "Unauthorized"});
     } else {
-        console.error("An error occurred:", error);
         return res.status(error.status || 400).json({error: error.error || "An error occurred"});
     }
 };

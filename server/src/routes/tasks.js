@@ -187,7 +187,7 @@ async function deleteTask(req, res) {
         const task = await Task.findOne({_id: taskId, userId: decoded.id});
         if (!task) return res.status(404).json({error: "Task not found"});
 
-        await task.delete();
+        await task.deleteOne();
         res.status(200).json({message: "Task deleted"});
     } catch (error) {
         handleError(res, error);
