@@ -4,12 +4,15 @@
   "description": "Testing environment",
   "main": "test.js",
   "scripts": {
-    "test": "start-server-and-test \"npm --prefix ../server start\" http://localhost:3000 \"jest\""
+    "test": "node run-test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "child_process": "^1.0.2",
+    "dotenv": "^16.4.5",
     "jest": "^29.7.0",
+    "path": "^0.12.7",
     "start-server-and-test": "^2.0.8",
     "supertest": "^7.0.0"
   }

@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = 'http://localhost:3000';
+const app = `http://localhost:${process.env.SERVER_PORT}`;
 
 // Function to generate a random string
 const generateRandomString = (length) => {
