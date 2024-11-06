@@ -9,7 +9,7 @@ function Navbar() {
             <ul>
                 <li>
                     <NavLink
-                        to="/"
+                        to="/todolist"
                         className={({ isActive }) => (isActive ? "active-link" : "")}
                     >
                         TODO List
