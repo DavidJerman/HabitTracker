@@ -14,7 +14,7 @@ const connectDB = require('./db');
 const authRoutes = require('./routes/auth');
 const taskRoutes = require('./routes/tasks');
 const activityRoutes = require('./routes/activities');
-const PORT = process.env.CLIENT_PORT || 5000;
+const PORT = process.env.PORT || 8081;
 
 const app = express();
 app.use(express.json());
