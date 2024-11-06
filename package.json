@@ -1,0 +1,19 @@
+{
+  "name": "habittracker",
+  "version": "1.0.0",
+  "description": "Habit tracker application with tests, client and server",
+  "main": "",
+  "directories": {
+    "doc": "docs",
+    "test": "tests",
+    "client": "client",
+    "server": "server"
+  },
+  "scripts": {
+    "test": "cd tests && npm test",
+    "client": "cd client && npm start",
+    "server": "cd server && npm start"
+  },
+  "author": "Ekipa brez imena",
+  "license": "ISC"
+}
