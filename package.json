@@ -12,7 +12,9 @@
   "scripts": {
     "test": "cd tests && npm test",
     "client": "cd client && npm start",
-    "server": "cd server && npm start"
+    "server": "cd server && npm start",
+    "all": "npm run client & npm run server",
+    "install": "cd client && npm install && cd ../server && npm install && cd ../tests && npm install"
   },
   "author": "Ekipa brez imena",
   "license": "ISC"

@@ -143,6 +143,12 @@ razvoj potrebno prenesti in namestiti naslednje:
 
 Nato si kloniramo repozitorij.
 
+#### Zagon aplikacije
+
+Zagon celotne aplikacije je preprost. V korenu repozitorija poženemo ukaz `npm install`, da
+namestimo vse potrebne module. Nato poženemo ukaz `npm run all`, ki požene tako strežnik kot
+tudi odjemalca.
+
 #### Strežnik
 
 V mapi `server` poženemo ukaz `npm install`, da namestimo vse potrebne module. Nato poženemo
