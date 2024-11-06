@@ -188,6 +188,8 @@ async function deleteActivity(req, res) {
  * @param {string} req.body.filter.description - Activity description
  * @param {string} req.body.filter.activityType - Activity type
  * @param {string} req.body.filter.dateAdded - Activity date added
+ * @param {string} req.body.filter.dateAddedAfter - Date added after
+ * @param {string} req.body.filter.dateAddedBefore - Date added before
  * @param {string} req.body.filter.durationLessThan - Duration less than
  * @param {string} req.body.filter.durationGreaterThan - Duration greater than
  * @param {string} req.body.filter.distanceLessThan - Distance less than
@@ -212,6 +214,8 @@ async function getActivities(req, res) {
             if (filter.description) query.description = filter.description;
             if (filter.activityType) query.activityType = filter.activityType;
             if (filter.dateAdded) query.dateAdded = filter.dateAdded;
+            if (filter.dateAddedAfter) query.dateAdded = {$gte: filter.dateAddedAfter};
+            if (filter.dateAddedBefore) query.dateAdded = {$lte: filter.dateAddedBefore};
             if (filter.durationLessThan) query.duration = {$lt: filter.durationLessThan};
             if (filter.durationGreaterThan) query.duration = {$gt: filter.durationGreaterThan};
             if (filter.distanceLessThan) query.distance = {$lt: filter.distanceLessThan};
@@ -223,7 +227,7 @@ async function getActivities(req, res) {
         }
 
         const activities = await Activity.find(query);
-        res.status(200).json(activities);
+        res.status(200).json({activities});
     } catch (error) {
         handleError(res, error);
     }
