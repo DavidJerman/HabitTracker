@@ -10,7 +10,7 @@ function Register() {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
 
-    const handleRegister = async (e) => {
+    async function Register(e){
         e.preventDefault();
 
         if (password !== confirmPassword) {
@@ -25,7 +25,11 @@ function Register() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username, password, email }),
+                body: JSON.stringify({
+                    email: email,
+                    username: username,
+                    password: password
+                })
             });
 
             const data = await response.json();
@@ -41,12 +45,12 @@ function Register() {
             console.error("Error during registration:", error);
             alert("An error occurred during registration");
         }
-    };
+    }
 
     return (
         <div className="register-container">
             <h2>Register</h2>
-            <form onSubmit={handleRegister}>
+            <form onSubmit={Register}>
                 <input
                     type="text"
                     placeholder="Username"

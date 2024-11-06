@@ -1,0 +1,106 @@
+[
+    {
+        "name": "Apple",
+        "dateAdded": "2024-11-01T12:00:00Z",
+        "nutritionalValue": {
+            "calories": 52,
+            "carbohydrates": 14,
+            "proteins": 0.3,
+            "fats": {
+                "saturated": 0.1,
+                "unsaturated": 0.1
+            }
+        }
+    },
+    {
+        "name": "Banana",
+        "dateAdded": "2024-11-01T12:00:00Z",
+        "nutritionalValue": {
+            "calories": 96,
+            "carbohydrates": 27,
+            "proteins": 1.3,
+            "fats": {
+                "saturated": 0.3,
+                "unsaturated": 0.2
+            }
+        }
+    },
+    {
+        "name": "Chicken Breast",
+        "dateAdded": "2024-11-01T12:00:00Z",
+        "nutritionalValue": {
+            "calories": 165,
+            "carbohydrates": 0,
+            "proteins": 31,
+            "fats": {
+                "saturated": 3.6,
+                "unsaturated": 1.2
+            }
+        }
+    },
+    {
+        "name": "Broccoli",
+        "dateAdded": "2024-11-01T12:00:00Z",
+        "nutritionalValue": {
+            "calories": 55,
+            "carbohydrates": 11,
+            "proteins": 3.7,
+            "fats": {
+                "saturated": 0.2,
+                "unsaturated": 0.2
+            }
+        }
+    },
+    {
+        "name": "Olive Oil",
+        "dateAdded": "2024-11-01T12:00:00Z",
+        "nutritionalValue": {
+            "calories": 884,
+            "carbohydrates": 0,
+            "proteins": 0,
+            "fats": {
+                "saturated": 14,
+                "unsaturated": 73
+            }
+        }
+    },
+    {
+        "name": "Quinoa",
+        "dateAdded": "2024-11-01T12:00:00Z",
+        "nutritionalValue": {
+            "calories": 120,
+            "carbohydrates": 21,
+            "proteins": 4.1,
+            "fats": {
+                "saturated": 0.2,
+                "unsaturated": 1.6
+            }
+        }
+    },
+    {
+        "name": "Almonds",
+        "dateAdded": "2024-11-01T12:00:00Z",
+        "nutritionalValue": {
+            "calories": 575,
+            "carbohydrates": 22,
+            "proteins": 21,
+            "fats": {
+                "saturated": 3.7,
+                "unsaturated": 14
+            }
+        }
+    },
+    {
+        "name": "Eggs",
+        "dateAdded": "2024-11-01T12:00:00Z",
+        "nutritionalValue": {
+            "calories": 155,
+            "carbohydrates": 1.1,
+            "proteins": 13,
+            "fats": {
+                "saturated": 3.1,
+                "unsaturated": 4.0
+            }
+        }
+    }
+]

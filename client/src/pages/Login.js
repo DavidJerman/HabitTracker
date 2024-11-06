@@ -1,30 +1,31 @@
 // src/pages/Login.js
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 
 function Login({ onLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    const navigate = useNavigate(); // Initialize navigate function
+    const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    async function handleSubmit(e) {
         e.preventDefault();
 
         try {
-            // Send a POST request to the login endpoint
             const response = await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
             });
-    
-            // Parse the response from the server
+
             const data = await response.json();
-    
+
             if (response.ok) {
                 console.log("Login successful:", data.token);
                 onLogin(data.token); // Pass token to set logged-in state or store token as needed
@@ -38,10 +39,9 @@ function Login({ onLogin }) {
         }
     };
 
-    // Navigate to register page on button click
     const handleRegisterClick = () => {
-        navigate("/register");
-    };
+        navigate('/register');
+    }
 
     return (
         <div className="login-container">
@@ -56,7 +56,7 @@ function Login({ onLogin }) {
                 />
 
                 <input
-                    type={showPassword ? "text" : "password"} 
+                    type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -73,12 +73,13 @@ function Login({ onLogin }) {
                 </label>
 
                 <button type="submit">Login</button>
-
-                {/* Register button */}
-                <button type="button" onClick={handleRegisterClick} className="register-button">
-                    Register
-                </button>
             </form>
+            <p>
+                Don't have an account?{" "}
+                <button onClick={handleRegisterClick} className="">
+                    Register here
+                </button>
+            </p>
         </div>
     );
 }
