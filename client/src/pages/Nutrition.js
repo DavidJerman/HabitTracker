@@ -37,7 +37,7 @@ function Nutrition() {
 
     async function fetchIngredients() {
 
-        const res = await fetch("http://localhost:3000/nutrition/ingredients", {
+        const res = await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/nutrition/ingredients`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ filter })
