@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: models/Meal.js</title>
+    <title>JSDoc: Source: models/Ingredient.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: models/Meal.js</h1>
+    <h1 class="page-title">Source: models/Ingredient.js</h1>
 
     
 
@@ -26,69 +26,73 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// models/Meal.js
+            <pre class="prettyprint source linenums"><code>// models/Ingredient.js
 
 /**
- * @module Meal
- * @description Meal Schema represents a user's meal in the MongoDB database.
- */
+ * @module Ingredient
+ * @description Ingredient Schema represents an ingredient in the MongoDB database.
+ **/
 
 const mongoose = require('mongoose');
 
 /**
- * @typedef {object} Meal
+ * @typedef {object} Ingredient
  *
- * @property {string} userId - The ID of the user associated with the meal.
- * @property {string} name - The name of the meal (required).
- * @property {string} [description] - A brief note about the meal.
- * @property {Date} dateAdded - The date when the meal was added (default: current date).
- * @property {('Breakfast'|'Lunch'|'Dinner'|'Snack'|'Other')} mealType - The type of meal.
+ * @property {string} name - The name of the ingredient (required).
+ * @property {Date} dateAdded - The date when the ingredient was added (default: current date).
+ * @property {Object} nutritionalValue - The average nutritional value of the ingredient.
+ * @property {Number} nutritionalValue.calories - The calories in the ingredient
+ * @property {Number} nutritionalValue.carbohydrates - The amount of carbohydrates in grams
+ * @property {Number} nutritionalValue.proteins - The amount of proteins in grams
+ * @property {Object} nutritionalValue.fats - The amount of fats in grams
+ * @property {Number} nutritionalValue.fats.saturated - The amount of saturated fats in grams
+ * @property {Number} nutritionalValue.fats.unsaturated - The amount of unsaturated fats in grams
  */
 
 /**
- * Task Schema for Mongoose.
+ * Ingredient Schema for Mongoose.
  *
- * @type {mongoose.Schema&lt;Meal>}
+ * @type {mongoose.Schema&lt;Ingredient>}
  */
-const MealSchema = new mongoose.Schema({
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
-    },
+
+const IngredientSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-    },
-    description: {
-        type: String,
-        required: false,
     },
     dateAdded: {
         type: Date,
         default: Date.now,
         required: true,
     },
-    mealType: {
-        type: String,
-        enum: ['breakfast', 'brunch', 'lunch', 'dinner', 'snack'],
-        required: true,
-    },
-    ingredients: [{
-        ingredient: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Ingredient',
-            required: true,
-        },
-        quantity: {
+    nutritionalValue: {
+        calories:{
             type: Number,
-            required: true,
+            required: true
         },
-    }]
-});
+        carbohydrates: {
+            type: Number,
+            required: true
+        },
+        proteins: {
+            type: Number,
+            required: true
+        },
+        fats: {
+            saturated: {
+                type: Number,
+                required: true
+            },
+            unsaturated: {
+                type: Number,
+                required: true
+            }
+        }
+    }
+})
 
-module.exports = mongoose.model('Meal', MealSchema);
-</code></pre>
+
+module.exports = mongoose.model('Ingredient', IngredientSchema);</code></pre>
         </article>
     </section>
 

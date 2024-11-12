@@ -38,7 +38,7 @@
     <div class="container-overview">
     
         
-            <div class="description">Meal Schema represents a user's meal in the MongoDB database.TODO: Add properties to the Meal Schema</div>
+            <div class="description">Meal Schema represents a user's meal in the MongoDB database.</div>
         
 
         
@@ -134,9 +134,347 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="~MealSchema"><span class="type-signature">(inner, constant) </span>MealSchema<span class="type-signature"> :mongoose.Schema.&lt;Meal></span></h4>
+
+
+
+
+<div class="description">
+    Task Schema for Mongoose.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">mongoose.Schema.&lt;Meal></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
 
     
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="models_Meal.js.html">models/Meal.js</a>, <a href="models_Meal.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<h4 class="name" id="~Meal">Meal</h4>
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>userId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The ID of the user associated with the meal.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The name of the meal (required).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>description</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A brief note about the meal.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dateAdded</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The date when the meal was added (default: current date).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mealType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">'Breakfast'</span>
+|
+
+<span class="param-type">'Lunch'</span>
+|
+
+<span class="param-type">'Dinner'</span>
+|
+
+<span class="param-type">'Snack'</span>
+|
+
+<span class="param-type">'Other'</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The type of meal.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="models_Meal.js.html">models/Meal.js</a>, <a href="models_Meal.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
     
 
     
@@ -150,13 +488,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Activities.html">Activities</a></li><li><a href="module-Activity.html">Activity</a></li><li><a href="module-App.html">App</a></li><li><a href="module-Auth.html">Auth</a></li><li><a href="module-Database.html">Database</a></li><li><a href="module-Meal.html">Meal</a></li><li><a href="module-Nutrition.html">Nutrition</a></li><li><a href="module-Task.html">Task</a></li><li><a href="module-Tasks.html">Tasks</a></li><li><a href="module-User.html">User</a></li><li><a href="module-Utils.html">Utils</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Activities.html">Activities</a></li><li><a href="module-Activity.html">Activity</a></li><li><a href="module-App.html">App</a></li><li><a href="module-Auth.html">Auth</a></li><li><a href="module-Database.html">Database</a></li><li><a href="module-Ingredient.html">Ingredient</a></li><li><a href="module-Meal.html">Meal</a></li><li><a href="module-Nutrition.html">Nutrition</a></li><li><a href="module-Task.html">Task</a></li><li><a href="module-Tasks.html">Tasks</a></li><li><a href="module-User.html">User</a></li><li><a href="module-Utils.html">Utils</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Nov 05 2024 17:56:31 GMT+0100 (Central European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Nov 12 2024 09:08:52 GMT+0100 (Central European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

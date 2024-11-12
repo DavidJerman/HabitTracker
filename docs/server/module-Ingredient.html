@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: Activity</title>
+    <title>JSDoc: Module: Ingredient</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: Activity</h1>
+    <h1 class="page-title">Module: Ingredient</h1>
 
     
 
@@ -38,7 +38,7 @@
     <div class="container-overview">
     
         
-            <div class="description">Activity Schema represents a user's sports activity in the MongoDB database.</div>
+            <div class="description">Ingredient Schema represents an ingredient in the MongoDB database.</div>
         
 
         
@@ -87,7 +87,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="models_Activity.js.html">models/Activity.js</a>, <a href="models_Activity.js.html#line3">line 3</a>
+        <a href="models_Ingredient.js.html">models/Ingredient.js</a>, <a href="models_Ingredient.js.html#line3">line 3</a>
     </li></ul></dd>
     
 
@@ -138,13 +138,13 @@
 
         
             
-<h4 class="name" id="~ActivitySchema"><span class="type-signature">(inner, constant) </span>ActivitySchema<span class="type-signature"> :mongoose.Schema.&lt;Activity></span></h4>
+<h4 class="name" id="~IngredientSchema"><span class="type-signature">(inner, constant) </span>IngredientSchema<span class="type-signature"> :mongoose.Schema.&lt;Ingredient></span></h4>
 
 
 
 
 <div class="description">
-    Activity Schema for Mongoose.
+    Ingredient Schema for Mongoose.
 </div>
 
 
@@ -153,7 +153,7 @@
     <ul>
         <li>
             
-<span class="param-type">mongoose.Schema.&lt;Activity></span>
+<span class="param-type">mongoose.Schema.&lt;Ingredient></span>
 
 
         </li>
@@ -192,7 +192,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="models_Activity.js.html">models/Activity.js</a>, <a href="models_Activity.js.html#line29">line 29</a>
+        <a href="models_Ingredient.js.html">models/Ingredient.js</a>, <a href="models_Ingredient.js.html#line30">line 30</a>
     </li></ul></dd>
     
 
@@ -218,7 +218,7 @@
 
         
                 
-<h4 class="name" id="~Activity">Activity</h4>
+<h4 class="name" id="~Ingredient">Ingredient</h4>
 
 
 
@@ -253,8 +253,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -263,35 +261,6 @@
     </thead>
 
     <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>userId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The ID of the user associated with the activity.</td>
-        </tr>
-
     
 
         <tr>
@@ -309,47 +278,10 @@
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">The name of the activity (required).</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>description</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">A brief description of the activity.</td>
+            <td class="description last">The name of the ingredient (required).</td>
         </tr>
 
     
@@ -369,128 +301,53 @@
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">The date when the activity was added (default: current date).</td>
+            <td class="description last">The date when the ingredient was added (default: current date).</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>activityType</code></td>
+                <td class="name"><code>nutritionalValue</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">'running'</span>
-|
-
-<span class="param-type">'cycling'</span>
-|
-
-<span class="param-type">'swimming'</span>
-|
-
-<span class="param-type">'walking'</span>
-|
-
-<span class="param-type">'hiking'</span>
-|
-
-<span class="param-type">'yoga'</span>
-|
-
-<span class="param-type">'weightlifting'</span>
-|
-
-<span class="param-type">'other'</span>
+<span class="param-type">Object</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">The type of activity.</td>
-        </tr>
+            <td class="description last">The average nutritional value of the ingredient.
+                <h6>Properties</h6>
 
-    
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-        <tr>
-            
-                <td class="name"><code>duration</code></td>
-            
+        <th>Type</th>
 
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
+        
 
+        
 
-            
-            </td>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-            
-                <td class="attributes">
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The duration of the activity in minutes (required).</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>distance</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The distance covered during the activity in kilometers.</td>
-        </tr>
-
+    <tbody>
     
 
         <tr>
@@ -501,56 +358,164 @@
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">Number</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">The calories burned during the activity.</td>
+            <td class="description last">The calories in the ingredient</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>elevationGain</code></td>
+                <td class="name"><code>carbohydrates</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">Number</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
 
+            
+
+            <td class="description last">The amount of carbohydrates in grams</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>proteins</code></td>
+            
+
+            <td class="type">
+            
                 
-                </td>
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
             
 
             
 
-            <td class="description last">The elevation gain during the activity in meters.</td>
+            <td class="description last">The amount of proteins in grams</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fats</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The amount of fats in grams
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>saturated</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The amount of saturated fats in grams</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>unsaturated</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The amount of unsaturated fats in grams</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -589,7 +554,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="models_Activity.js.html">models/Activity.js</a>, <a href="models_Activity.js.html#line10">line 10</a>
+        <a href="models_Ingredient.js.html">models/Ingredient.js</a>, <a href="models_Ingredient.js.html#line10">line 10</a>
     </li></ul></dd>
     
 
@@ -625,7 +590,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Nov 12 2024 09:08:51 GMT+0100 (Central European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Nov 12 2024 09:08:52 GMT+0100 (Central European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
