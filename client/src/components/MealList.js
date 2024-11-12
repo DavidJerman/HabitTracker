@@ -6,14 +6,16 @@ function MealList({ meals, removeMeal }) {
     return (
         <ul>
             {meals.map((meal) => (
-                <li key={meal.id} className="meal-item">
+                <li key={meal._id} className="meal-item">
                     <div>
-                        <h3>{meal.type}</h3>
-                        <p>{meal.description}</p>
-                        <p className="meal-calories">Calories: {meal.calories}</p>
-                        <p className="meal-date">Date: {meal.date}</p>
+                        <h3>{meal.name}</h3>
+                        <p>Type: {meal.mealType}</p> 
+                        <p>Description:{meal.description}</p>
+                        {/* <p className="meal-calories">Calories: {meal.calories}</p> */}
+                        <p className="meal-date">Date: {new Date(meal.dateAdded).toLocaleDateString()}</p> 
                     </div>
-                    <button onClick={() => removeMeal(meal.id)} className="remove-meal-button">Remove</button>
+                    {/* TODO ASK FIRST */}
+                    <button onClick={() => removeMeal(meal._id)} className="remove-meal-button">Remove</button>
                 </li>
             ))}
         </ul>

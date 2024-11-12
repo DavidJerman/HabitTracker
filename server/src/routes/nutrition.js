@@ -37,10 +37,11 @@ const validateMealParams = () => {
 }
 
 async function addMeal(req, res){
-    const {token, name, notes, dateAdded, mealType, ingredients} = req.body;
+    const {token, name, description, dateAdded, mealType, ingredients} = req.body;
 
     try{
         const decoded = verifyToken(token);
+        const date = dateAdded || Date.now();
 
         //TODO
         const validationError = validateMealParams();
@@ -49,9 +50,9 @@ async function addMeal(req, res){
         const meal = new Meal({
             userId: decoded.id,
             name,
-            notes,
-            dateAdded,
-            mealType,
+            description,
+            dateAdded: date, 
+            mealType: mealType.toLowerCase(),
             ingredients
         })
 
@@ -59,24 +60,26 @@ async function addMeal(req, res){
         res.status(201).json({message: "Meal added successfully"})
 
     } catch (error) {
+        console.error("Error in addMeal:", error);
         handleError(res, error);
     }
 }
 
 async function deleteMeal(req, res) {
-    const {token, mealId} = req.body;
+    const { token, mealId } = req.body;
 
     try {
         const decoded = verifyToken(token);
 
-        if (!mealId) return res.status(400).json({error: "Meal ID is required"});
+        if (!mealId) return res.status(400).json({ error: "Meal ID is required" });
 
-        const meal = await Meal.findOne({_id: mealId, userId: decoded.id});
-        if (!meal) return res.status(404).json({error: "Meal not found"});
+        const meal = await Meal.findOne({ _id: mealId, userId: decoded.id });
+        if (!meal) return res.status(404).json({ error: "Meal not found" });
 
-        await meal.remove();
-        res.status(200).json({message: "Meal deleted successfully"});
+        await Meal.deleteOne({ _id: mealId, userId: decoded.id }); 
+        res.status(200).json({ message: "Meal deleted successfully" });
     } catch (error) {
+        console.error("Error in deleteMeal:", error);
         handleError(res, error);
     }
 }
@@ -122,6 +125,21 @@ async function addIngredient(req, res) {
     }
 }
 
+async function getMeals(req, res) {
+    const { token } = req.body; 
+
+    try {
+        const decoded = verifyToken(token);
+
+        const meals = await Meal.find({ userId: decoded.id });
+        res.status(200).json(meals);
+    } catch (error) {
+        console.error("Error in getMeals:", error);
+        handleError(res, error);
+    }
+}
+
+
 
 
 
@@ -131,10 +149,8 @@ router.post('/addMeal', addMeal);
 router.post('/ingredients', getIngredients);
 // router.post('/update', updateMeal);
 router.post('/delete', deleteMeal);
-// router.post('/get', getMeals);
-//Get ingredients
-//Add ingredient
-//Get NUT:id of meal
+router.post('/meals', getMeals);
+
 
 
 
