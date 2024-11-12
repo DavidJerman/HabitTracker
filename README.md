@@ -166,6 +166,58 @@ JWT_SECRET=<secret>
 
 Datoteka je v repozitoriju že dodana za lažjo uporabo.
 
+### API
+
+API aplikacije za avtentikacijo sprva zahteva uporabniško ime in geslo uporabnika. Ob uspešni
+registraciji in prijavi API vrne token, ki se nato uporablja ob poizvedbah za avtentikacijo.
+API zahteva POST poizvedbe, kjer podatke pošljemo v json obliki. Primer JSON poizvedbe `/auth/login`:
+
+```json
+{
+    "username": "user",
+    "password": "awesomePassword"
+}
+```
+
+Odziv strežnika:
+
+```json
+{
+    "error": "Invalid credentials"
+}
+```
+
+In še odziv pravilne poizvedbe:
+
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzMwODJhZmY5Zjk2OTU0ZDc3MmE4NCIsImlhdCI6MTczMTM5NzY4MSwiZXhwIjoxNzMxNDAxMjgxfQ.sfcCYdu59FXD9HBRVlxt17XDHAA-ir5q9cHH6V6dqb8"
+}
+```
+
+Ter še primer ene pravilne poizvedbe:
+
+```json
+{
+    "name": "Awesome Task!",
+    "description": "An interesting task...",
+    "recurrence": "none",
+    "dueDate": "2024-11-10",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzMwODJhZmY5Zjk2OTU0ZDc3MmE4NCIsImlhdCI6MTczMTM5NzY4MSwiZXhwIjoxNzMxNDAxMjgxfQ.sfcCYdu59FXD9HBRVlxt17XDHAA-ir5q9cHH6V6dqb8"
+}
+```
+
+Odziv:
+
+```json
+{
+    "message": "Task added"
+}
+```
+
+Vsi parametri potrebni za poizvedbo so opisani v generirani dokumentaciji in so tudi razvidni
+v kodi nad funkcijami.
+
 ### Dokumentacija
 
 Dokumentacija je napisana v JSDoc in se nahaja v mapi `docs`, poleg tega pa tudi na GitHub
