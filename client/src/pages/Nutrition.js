@@ -15,6 +15,7 @@ function Nutrition() {
     const [selectedIngredients, setSelectedIngredients] = useState([]);
     const [filter, setFilter] = useState({name: ''});
 
+    // Add ingredient to selected list
     const handleIngredientClick = (ingredient) => {
         if (!selectedIngredients.some((item) => item._id === ingredient._id)) {
             setSelectedIngredients([
@@ -24,6 +25,7 @@ function Nutrition() {
           }
     };
 
+    // Update quantity of selected ingredient
     const handleQuantityChange = (id, value) => {
         setSelectedIngredients(
             selectedIngredients.map((ingredient) =>
@@ -32,11 +34,12 @@ function Nutrition() {
         );
     };
 
+    // Remove ingredient from selected list
     const removeSelectedIngredient = (id) => {
         setSelectedIngredients(selectedIngredients.filter((ingredient) => ingredient._id !== id));
     };
 
-    // Add new meal to the list
+    // Add meal to the server
     async function addMeal() {
 
         const token = localStorage.getItem("token");
@@ -64,7 +67,7 @@ function Nutrition() {
 
         if (newMeal.type) {
             // setMeals([...meals, { ...newMeal, id: meals.length + 1 }]);
-            const res = await fetch("http://localhost:3000/nutrition/addMeal", {
+            const res = await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/nutrition/addMeal`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: { 'Content-Type': 'application/json' },
@@ -100,7 +103,7 @@ function Nutrition() {
             return;
         }
 
-        await fetch("http://localhost:3000/nutrition/delete", {
+        await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/nutrition/delete`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -111,10 +114,11 @@ function Nutrition() {
 
         fetchMeals();
     }; 
-
+    
+    // Fetch ingredients from the server
     async function fetchIngredients() {
 
-        const res = await fetch("http://localhost:3000/nutrition/ingredients", {
+        const res = await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/nutrition/ingredients`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ filter })
@@ -128,6 +132,7 @@ function Nutrition() {
         fetchIngredients();
     }, [filter])
 
+    // Fetch meals from the server
     async function fetchMeals() {
         const token = localStorage.getItem("token");
 
@@ -136,7 +141,7 @@ function Nutrition() {
             return;
         }
 
-        const res = await fetch("http://localhost:3000/nutrition/meals", {
+        const res = await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/nutrition/meals`, {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',

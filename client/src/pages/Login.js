@@ -28,6 +28,7 @@ function Login({ onLogin }) {
 
             if (response.ok) {
                 console.log("Login successful:", data.token);
+                localStorage.setItem("token", data.token);
                 onLogin(data.token); // Pass token to set logged-in state or store token as needed
                 navigate("/todolist");
             } else {
