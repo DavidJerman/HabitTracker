@@ -155,13 +155,29 @@ V mapi `server` poženemo ukaz `npm install`, da namestimo vse potrebne module. 
 MongoDB strežnik. Za zagon strežnika uporabimo ukaz `npm start`. Alternativno pa lahko uporabimo
 tudi ukaz `node src/app.js`.
 
-Za pravilno delovanje stre\nika je potrebno ustvariti datoteko `.env` v mapi `server` in vanjo
+Za pravilno delovanje strežnika je potrebno ustvariti datoteko `.env` v mapi `server` in vanjo
 dodati naslednje spremenljivke:
 
 ```env
 MONGODB_URI=mongodb://localhost:27017/habitTracker
 CLIENT_PORT=<port>
+PORT=<port>
 JWT_SECRET=<secret>
+```
+
+Datoteka je v repozitoriju že dodana za lažjo uporabo.
+
+#### Odjemalec
+
+V mapi `client` poženemo ukaz `npm install`, da namestimo vse potrebne module. Za zagon odjemalca
+uporabimo ukaz `npm start`.
+
+Za pravilno delovanje odjemalca je potrebno ustvariti datoteko `.env` v mapi `client` in vanjo
+dodati naslednje spremenljivke:
+
+```env
+PORT=<port>
+REACT_APP_SERVER_PORT=<port>
 ```
 
 Datoteka je v repozitoriju že dodana za lažjo uporabo.
