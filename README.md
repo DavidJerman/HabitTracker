@@ -234,6 +234,11 @@ Odziv:
 Vsi parametri potrebni za poizvedbo so opisani v generirani dokumentaciji in so tudi razvidni
 v kodi nad funkcijami.
 
+#### Dodajanje sestavin
+
+Zaenkrat je potrebno sestavine ročno uvoziti v podatkovno bazo. Seznam sestavin se nahaja
+v direktoriju `server`. Ta seznam lahko uvozimo v MongoDB Compass aplikaciji v tabelo `ingredients`.
+
 ### Dokumentacija
 
 Dokumentacija je napisana v JSDoc in se nahaja v mapi `docs`, poleg tega pa tudi na GitHub
